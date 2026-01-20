@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Jiomart Deal Finder by invader",
+  "version": "1.0",
+  "description": "Shows Jiomart products sorted by discount in a table.",
+  "permissions": ["storage"],
+  "host_permissions": ["https://www.jiomart.com/*"],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://www.jiomart.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+
+  "web_accessible_resources": [
+    {
+      "resources": ["page-hook.js"],
+      "matches": ["https://www.jiomart.com/*"]
+    }
+  ],
+
+  "action": {
+    "default_popup": "popup/popup.html"
+  }
+}
